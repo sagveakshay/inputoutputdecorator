@@ -1,0 +1,29 @@
+<h1>parent component</h1>
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Sr No.</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of listofChildForm; let id= index">
+            <th>{{id+1}}</th>
+            <td>{{item.firstname}}</td>
+            <td>{{item.lastname}}</td>
+            <td><button type="button" class="btn btn-primary me-2" (click)="editChildData(id)">Edit</button> <button
+                    type="button" class="btn btn-danger" (click)="deleteChildData(id)">Delete</button></td>
+
+        </tr>
+
+    </tbody>
+</table>
+
+
+<br>
+<app-child-component [parentData]="parentVariable" [parentPayload]="parentpayload" (childEvent)="receiveMessage($event)"
+    (childFrom)="getChildForm($event)"></app-child-component>
